@@ -1,0 +1,78 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-image: url("https://img.freepik.com/free-psd/3d-rendering-questions-background_23-2151455632.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    justify-items: center;
+    align-content: center;
+}
+
+.container{
+    width: 30%;
+    height: 70%;
+    background-color: #9334F2;
+    border-radius: 10px;
+}
+
+.head{
+    height: 20%;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.head h2{
+    padding-bottom: 5%;
+}
+
+.option{
+    height: 50%;
+    display: grid;
+    margin: 5px 20px;
+    gap: 10px;
+}
+
+.option button{
+    border-radius: 10px;
+    border: none;
+}
+
+.foot{
+    height: 30%;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.btn-1{
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-1 button{
+    height: 90%;
+    width: 30%;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;    
+}
+
+.btn-2{
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-2 button{
+    height: 90%;
+    width: 40%;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;    
+}

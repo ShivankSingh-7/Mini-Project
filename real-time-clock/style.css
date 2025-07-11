@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    justify-items: center;
+    align-content: center;
+}
+
+
+
+.container {
+    background-color: grey;
+    width: 50%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+
+}
+
+
+.hour {
+    color: aqua;
+    font-size: 8vh;
+    font-family: "Sedgwick Ave Display", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.min{
+    color: aqua;
+    font-size: 8vh;
+    font-family: "Sedgwick Ave Display", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.sec{
+    color: aqua;
+    font-size: 8vh;
+    font-family: "Sedgwick Ave Display", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ampm{
+    color: aqua;
+    font-size: 8vh;
+    font-family: "Sedgwick Ave Display", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
