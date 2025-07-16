@@ -1,6 +1,3 @@
-
-
-
 let currentIndex = 0;
 let score = 0;
 let selectedIndex = null;
