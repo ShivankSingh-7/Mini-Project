@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="left">
+            <h1 class="">Skies Notes</h1>
+            <div class="add">
+                <div class="detail">
+                    <p>Title</p>
+                    <p>description</p>
+                </div>
+                <div class="addbtn">
+                    <div class="priority">
+                        <label for="prior"></label>
+                        <select name="prior" id="prior" required>
+                            <option value="" disabled selected>Select priority</option>
+                            <option value="low">low</option>
+                            <option value="medium">medium</option>
+                            <option value="High">high</option>
+                        </select>
+                    </div>
+                    <button><img class="addbox" src="plus.svg" alt="add image"></button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="plus">
+                    <img src="plsu2.svg" alt="">
+                </div>
+                <ul>
+                    <li>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="task-detail-panel display">
+            <label for="ftitle"></label>
+            <input type="text" id="ftitle" placeholder="title">
+            <button class="done">Done</button>
+            <label for="description"></label>
+            <textarea id="description"
+                placeholder="Write your note here"></textarea>
+        </div>
+
+        <div class="right">
+            <div class="clock-box">
+                <p></p>
+            </div>
+            <div class="calbox">
+                <div id="calendar"></div>
+            </div>
+            <div class="prioritylist">
+                <div class="lowbar">
+                    <p>low</p>
+                    <div class="outter">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+                <div class="mediumbar">
+                    <p>medium</p>
+                    <div class="outter">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+                <div class="highbar">
+                    <p>high</p>
+                    <div class="outter">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="quotes">
+                random quotes will appear Here
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

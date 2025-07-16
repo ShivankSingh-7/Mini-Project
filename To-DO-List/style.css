@@ -1,0 +1,236 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: black;
+    color: white;
+    justify-items: center;
+    align-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main{
+    border: 2px solid white;
+    display: grid;
+    width: 70%;
+    height: 80%;
+    grid-template-columns: 70% 30%;
+    padding: 10px;
+}
+
+.left{
+    display: grid;
+    grid-template-rows: 10% 15% 75%;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.add{
+    display: flex;
+    border: 2px solid white;
+    width: 80%;
+    height: 80%;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+
+.detail{
+    display: grid;
+    gap: 10px;
+    width: 80%;
+    height: 80%;
+}
+
+.detail *{
+    border: 2px solid white;
+    width: 80%;
+    height: 100%;
+    padding-top: 2px;
+    padding-left: 5px;
+}
+
+.addbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#prior{
+    height: 5vh;
+    border: none;
+    color: white;
+    background-color: blue;
+    border-radius: 20px;
+    padding: 5px 10px;
+    outline: none;
+}
+
+.content{
+    margin-top: 30px;
+    height: 100%;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.content ul{
+    width: 100%;
+    display: grid;
+    gap: 10px;
+    overflow-y: auto;
+    height: 90%;
+    max-height: 90%;
+    /* display: none; */
+    align-content: start;
+    scrollbar-width: none;
+}
+
+ul li{
+    list-style: none;
+}
+
+.box{
+    border: 2px solid white;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 20vw 10vw;
+    justify-content: space-between;
+    padding: 10px 10px;
+    min-height: 60px;
+    align-items: center;
+}
+
+.icons{
+    display: flex;
+    justify-content: end;
+    height: 40%;
+    gap: 10px;
+    padding-right: 10px;
+}
+
+.writtenContent *{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.task-detail-panel{
+    position: absolute;
+    border: 2px solid white;
+    padding: 10px;
+    width: 40vw;
+    height: 75vh;
+    z-index: 10;
+    background-color: black;
+}
+
+.detail-title{
+    padding-bottom: 10px;
+    font-style:italic;
+    text-decoration: underline;
+}
+
+#description{
+    height: 93%;
+    width: 100%;
+    scrollbar-width: none;
+    color: white;
+    background-color: black;
+    outline: none;
+    border: none;
+}
+
+#ftitle{
+    font-size: 30px;
+    width: 80%;
+    background-color: black;
+    border: none;
+    outline: none;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.done{
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+}
+
+.plus{
+    position: absolute;
+    right: 55%;
+}
+
+.right{
+    display: grid;
+    grid-template-rows: 15% 50% 18% 17%;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.clock-box{
+    border: 2px solid white;
+    width: 100%;
+    box-sizing: border-box;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    align-content: center;
+    justify-items: center;
+}
+
+.calbox{
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+.calendar{
+    width: 100px;
+}
+
+.prioritylist{
+    border: 2px solid white;
+    display: grid;
+    grid-template-rows: 30% 30% 30%;
+}
+
+.lowbar, .mediumbar, .highbar{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.outter{
+    border: 2px solid white;
+    width: 15vw;
+    border-radius: 20px;
+    height: 70%;
+}
+
+.inner{
+    border: 2px solid blue;
+    height: 100%;
+    background-color: blue;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.quotes{
+    border: 2px solid white;
+    margin-top: 10px;
+}
