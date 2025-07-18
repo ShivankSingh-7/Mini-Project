@@ -26,7 +26,7 @@ function renderBox(title, description, index) {
                             </div>
                             <div class="icons">
                                 <img src="edit.svg" alt="edit icon">
-                                <img class="bin" src="bin.svg" alt="bin icon" data-index="${index}">
+                                <img class="bin" type="button" src="bin.svg" alt="bin icon" data-index="${index}">
                             </div>
                         </div>`
 
@@ -40,6 +40,7 @@ function renderBox(title, description, index) {
     });
 
     el.querySelector(".bin").addEventListener("click", async (e) => {
+        e.preventDefault();
         e.stopPropagation();
         try {
             let id = parseInt(e.target.dataset.index);
@@ -55,7 +56,7 @@ function renderBox(title, description, index) {
                 await fetchNotes();
 
                 const list = document.querySelector("ul");
-                if(list.children.length === 0){
+                if (list.children.length === 0) {
                     document.querySelector(".plus").style.display = "block";
                 }
             }
@@ -89,7 +90,9 @@ async function fetchNotes() {
 fetchNotes();
 
 
-document.querySelector(".done").addEventListener("click", async () => {
+document.querySelector(".done").addEventListener("click", async (e) => {
+    e.preventDefault();
+    e.stopPropagation()
     let title = document.getElementById("ftitle").value;
     let description = document.getElementById("description").value;
 

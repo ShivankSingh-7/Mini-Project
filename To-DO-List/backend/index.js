@@ -1,15 +1,16 @@
 import express from "express";
 import cors from "cors";
+import { readNotes, addNote, deleteNote } from './notesController.js';
+
 const app = express()
 const port = 3000
 
 app.use(express.json());
 app.use(cors()); 
 
-let notes = [];
-
 app.get("/notes", (req, res) => {
-  res.json(notes);
+    const notes = readNotes();
+    res.json(notes);
 })
 
 app.post("/notes", (req,res)=>{
@@ -24,22 +25,15 @@ app.post("/notes", (req,res)=>{
         description
     };
 
-    if(note)
-    notes.push(note);
+    addNote(note);
 
-    res.status(201).json({message: "notes added", notes});
+    res.status(201).json({message: "notes added",note});
 })
 
 app.delete("/notes/:id",(req,res)=>{
     const idToDelete = Number(req.params.id);
-    const index = notes.findIndex(note=> note.id === idToDelete);
-
-    if(index == -1){
-        return res.status(404).json({message: "Note not found"});
-    }
-
-    notes.splice(index,1);
-    res.status(200).json({message: "notes deleted"});
+    deleteNote(idToDelete);
+    res.status(200).json({message: "Note deleted sucessfully"});
 })
 
 app.listen(port, () => {
