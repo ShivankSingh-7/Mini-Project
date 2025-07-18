@@ -13,7 +13,7 @@ document.querySelectorAll(".plus, .addbox").forEach(el => {
     })
 })
 
-let notes = JSON.parse(localStorage.getItem("notes")) || [];
+// let notes = JSON.parse(localStorage.getItem("notes")) || [];
 
 
 
@@ -39,19 +39,31 @@ function renderBox(title, description, index) {
         eIndex = index;
     });
 
-    el.querySelector(".bin").addEventListener("click", (e) => {
+    el.querySelector(".bin").addEventListener("click", async (e) => {
         e.stopPropagation();
-        let deleteIndex = parseInt(e.target.dataset.index);
-        notes.splice(deleteIndex, 1);
-        localStorage.setItem("notes", JSON.stringify(notes));
-        document.querySelector("ul").innerHTML = "";
-        if (notes.length != 0) {
-            notes.forEach((n, i) => {
-                renderBox(n.title, n.description, i);
-            })
-        }
-        else{
-            document.querySelector(".plus").style.display = "block";
+        try {
+            let id = parseInt(e.target.dataset.index);
+            let response = await fetch(`http://localhost:3000/notes/${id}`, {
+                method: "DELETE",
+            });
+            let result = await response.json();
+            if (response.ok) {
+                document.getElementById("ftitle").value = "";
+                document.getElementById("description").value = "";
+                eIndex = null
+                // document.querySelector("ul").innerHTML = "";
+                await fetchNotes();
+
+                const list = document.querySelector("ul");
+                if(list.children.length === 0){
+                    document.querySelector(".plus").style.display = "block";
+                }
+            }
+            else {
+                alert(result);
+            }
+        } catch (error) {
+            alert(error.message);
         }
     });
 
@@ -59,41 +71,60 @@ function renderBox(title, description, index) {
     document.querySelector(".plus").style.display = "none";
 }
 
-if (notes.length != 0) {
-    notes.forEach((note, index) => {
-        renderBox(note.title, note.description, index);
-    });
+
+async function fetchNotes() {
+    try {
+        const response = await fetch("http://localhost:3000/notes");
+        const data = await response.json();
+
+        document.querySelector("ul").innerHTML = "";
+        data.forEach((note) => {
+            renderBox(note.title, note.description, note.id);
+        });
+    } catch (error) {
+        alert(error.message);
+    }
 }
 
-document.querySelector(".done").addEventListener("click", () => {
+fetchNotes();
+
+
+document.querySelector(".done").addEventListener("click", async () => {
     let title = document.getElementById("ftitle").value;
     let description = document.getElementById("description").value;
-    let note = { title, description };
-    if (eIndex == null) {
-        notes.push(note);
-    }
-    else {
-        notes[eIndex] = note;
+
+    if (!title || !description) {
+        alert("both title and decsription are requierd.")
+        return;
     }
 
-    localStorage.setItem("notes", JSON.stringify(notes));
+    try {
+        const response = await fetch("http://localhost:3000/notes", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ title, description })
+        });
 
-    let a = document.querySelector(".task-detail-panel");
-    document.getElementById("ftitle").value = "";
-    document.getElementById("description").value = "";
-    eIndex = null;
-    a.classList.toggle("display");
-    document.querySelector("ul").innerHTML = "";
-    notes.forEach((note, index) => {
-        renderBox(note.title, note.description, index);
-    })
+        const result = await response.json();
 
-    console.log("clicked done");
-})
+        if (response.ok) {
+            document.getElementById("ftitle").value = "";
+            document.getElementById("description").value = "";
+            document.querySelector(".task-detail-panel").classList.toggle("display");
+            fetchNotes();
+        } else {
+            alert(result.message);
+        }
+    } catch (error) {
+        alert("caught error", error);
+    }
+});
 
 
 function clock(hour, min, sec) {
-    if(hour>12){
+    if (hour > 12) {
         hour = hour - 12;
     }
     let box = document.querySelector(".clock-box");
